@@ -427,8 +427,7 @@ static void sugov_update_single_freq(struct update_util_data *hook, u64 time,
 
 	next_f = get_next_freq(sg_policy, sg_cpu->util, max_cap);
 
-	if (sugov_hold_freq(sg_cpu) && next_f < sg_policy->next_freq &&
-	    !sg_policy->need_freq_update) {
+	if (sugov_hold_freq(sg_cpu) && !sg_policy->need_freq_update) {
 		next_f = sg_policy->next_freq;
 
 		/* Reset cached freq as next_freq has changed */
